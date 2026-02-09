@@ -34,13 +34,13 @@
 
 #    0   1      2          3               4          5
 
-t = (4 , 5 , "Chirag" , "Ahmedabad" , "Chirag@1234" , 99)
+# t = (4 , 5 , "Chirag" , "Ahmedabad" , "Chirag@1234" , 99)
 
-print(t) # print all the elements which are present in the tuples
+# print(t) # print all the elements which are present in the tuples
 
-print(type(t)) # <class 'tuple'>
+# print(type(t)) # <class 'tuple'>
 
-print(type(t).__name__) # tuple as string prints
+# print(type(t).__name__) # tuple as string prints
 
 # we can not assign any elements values of their indexing likes
 
@@ -51,3 +51,11 @@ print(type(t).__name__) # tuple as string prints
 # t[1] = 9
 
 # print(t[1]) # it will be also showing the same errors that tuple objects(elements) can't supported item assignment operators
+
+t = (4 , 5 , 9 , 7)
+
+# <class 'tuple'>   
+print(type(t) == tuple) # True
+
+# return as string tuple
+print(type(t).__name__ == "tuple") # True
