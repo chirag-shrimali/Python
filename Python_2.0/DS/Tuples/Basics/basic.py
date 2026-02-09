@@ -52,10 +52,19 @@
 
 # print(t[1]) # it will be also showing the same errors that tuple objects(elements) can't supported item assignment operators
 
-t = (4 , 5 , 9 , 7)
+# t = (4 , 5 , 9 , 7)
 
-# <class 'tuple'>   
-print(type(t) == tuple) # True
+# # <class 'tuple'>   
+# print(type(t) == tuple) # True
 
-# return as string tuple
-print(type(t).__name__ == "tuple") # True
+# # return as string tuple
+# print(type(t).__name__ == "tuple") # True
+
+#    0       1      2   3        4        5
+t = (5 , "Chirag" , 9 , 7 , 'Ahmedabad' , 4)
+
+# for i in t :
+#     print(i)
+
+for i in range(0 , len(t)) :
+    print(i , '-' , t[i])
