@@ -64,7 +64,7 @@ players = [
             ["Rohit" , 100 , 67 , 56]
           ]
 
-# 1
+# 1 ------------------------------------------------------
 
 # players1 = []
 
@@ -76,19 +76,19 @@ players = [
 
 # print(players1)
 
-# 2
+# 2 --------------------------------------------------------
 
-players1 = []
+# players1 = []
 
-for i in range(0 , len(players)) :
-    for j in range(0 , len(players[i])) :
-        player = players[i][1] , players[i][2] , players[i][2]
-        players1.append(player)
-        break
+# for i in range(0 , len(players)) :
+#     for j in range(0 , len(players[i])) :
+#         player = players[i][1] , players[i][2] , players[i][2]
+#         players1.append(player)
+#         break
 
 # print(players1)
 
-# 3
+# 3 ------------------------------------------------------
 
 # players1 = []
 
@@ -100,7 +100,7 @@ for i in range(0 , len(players)) :
 
 # print("Virat Scores are :",players1)
 
-# 4
+# 4 ------------------------------------------------------
 
 # players1 = []
 
@@ -112,12 +112,44 @@ for i in range(0 , len(players)) :
 
 # print("Rohit Scores are :",players1)
 
-# 5
+# 5 ------------------------------------------------------
 
-players1 = []
+# players1 = []
 
-for i in range(0 , len(players)) :
-    for j in range(0 , len(players[i])) :
-        player = players[i][1] , players[i][2] , players[i][2]
-        players1.append(player)
-        break
+# for i in range(0 , len(players)) :
+#     for j in range(0 , len(players[i])) :
+#         player = players[i][1] , players[i][2] , players[i][2]
+#         players1.append(player)
+#         break
+
+# give 20 % discount if unit is above 200 else 10% discount give after discount list
+
+# ["171" , "90" , 160]....
+
+# units = [190 , 100 , 200 , 300 , 334 , 70 , 50 , 400 , 450 , 10 , 110]
+
+# units = [190 , 100 , 200 , 300 , 334 , 70 , 50 , 400 , 450 , 10 , 110]
+
+# units1 = []
+
+# for i in units :
+#     if i > 200 :
+#         i = i // 1.2
+#     else :
+#         i = i // 1.1
+
+#     units1.append(i)
+
+# print(units)
+
+# print(units1)
+
+# Comprehension Version using With If Else Conditions
+
+units = [190 , 100 , 200 , 300 , 334 , 70 , 50 , 400 , 450 , 10 , 110]
+
+units1 = [i // 1.2 if i > 200 else i // 1.1 for i in units]
+
+print(units)
+
+print(units1)
