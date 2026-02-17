@@ -95,19 +95,57 @@ There are having 5 types of inheritances...
 
 # Update or Modify ---------------------------------------------------------------------------------------------------
 
+# class student :
+#     def __init__(self):
+#         self.__name = "Chirag"
+#         self.__age = 19
+
+#     def display(self) :
+#         print("\nStudent Name is :",self.__name)
+#         print("\nStudent Age is :",self.__age)
+
+# class teacher(student) :
+#     def __init__(self):
+#         student.__init__(self)
+#         self.__t_name = "Ramesh Shah"
+
+#     def show(self) :
+#         print("\n======= Student Information =======")
+#         self.display()
+#         print("\n======= Teacher Information =======")
+#         print("\nTeacher Name is :",self.__t_name)
+
+# t = teacher()
+
+# t.show()
+
+# print("\n------------------------------------------------------------------")
+
+# t.__name = "Chintan"
+
+# t.__t_name = "Bhvesh Prajapti"
+
+# t.__age = 45
+
+# t.show()
+
+# Parameterized Constrcutors -----------------------------------------------------------------
+
 class student :
-    def __init__(self):
-        self.__name = "Chirag"
-        self.__age = 19
+    def __init__(self , name , age , city):
+        self.__name = name
+        self.__age = age
+        self.__city = city
 
     def display(self) :
         print("\nStudent Name is :",self.__name)
         print("\nStudent Age is :",self.__age)
+        print("\nStudent City is :",self.__city)
 
 class teacher(student) :
-    def __init__(self):
-        student.__init__(self)
-        self.__t_name = "Ramesh Shah"
+    def __init__(self , name , age , city):
+        student.__init__(self , name , age , city)
+        self.__t_name = "Kishor Kumar"
 
     def show(self) :
         print("\n======= Student Information =======")
@@ -115,16 +153,6 @@ class teacher(student) :
         print("\n======= Teacher Information =======")
         print("\nTeacher Name is :",self.__t_name)
 
-t = teacher()
-
-t.show()
-
-print("\n------------------------------------------------------------------")
-
-t.__name = "Chintan"
-
-t.__t_name = "Bhvesh Prajapti"
-
-t.__age = 45
+t = teacher("Chirag" , 19 , "Srinagar")
 
 t.show()
