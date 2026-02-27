@@ -65,10 +65,68 @@
 
 # -----------------------------------------------------------------
 
-names = ["naman" , "ram" , "shyam" , "bob" , "jay" , "madam"]
+# names = ["naman" , "ram" , "shyam" , "bob" , "jay" , "madam"]
 
-# data = {i : i for i in names}
+# # data = {i : i for i in names}
 
-data = {i : "palindrome" if i == i[ : : -1] else "Not Palindrome"  for i in names}
+# data = {i : "palindrome" if i == i[ : : -1] else "Not Palindrome"  for i in names}
 
-print(data)
+# print(data)
+
+# Task - 1 ----------------------------------------------------------
+
+# numbers = [25 , ....] # even odd 
+
+# data = [25 , 30 , 69 , 78 , 45 , 36 , 37]
+
+# dic = {i : "Even" if i % 2 == 0 else "Odd" for i in data}
+
+# print(dic)
+
+# Task - 2 ----------------------------------------------------------
+
+# marks = {"Samir" : 85 , "Rahul" : 40 , "Aman" : 72}
+
+# result = {'Samir' : 'Pass' , 'Rahul' : 'Fail' , 'Aman' : 'Pass'}
+
+# dic1 = {i : "Pass" if marks[i] > 40 else "Fail" for i in marks}
+
+# print(dic1)
+
+# Task - 3 -----------------------------------------------------------
+
+# data = {"a" : 1 , "b" : 2 , "c" : 3}
+
+# data ={1 : "a" , 2 : "b" , 3 : "c"}
+ 
+# # dic = {i : data[i] for i in data}
+
+# dic = {i : data[i] for i in data}
+
+# dic1 = {data[i] : i for i in data}
+
+# # a , a + 1 = a + 1 , a
+
+# print(dic)
+
+# print(dic1)
+
+# Task - 4 ------------------------------------------------------------
+
+# data = {"name" : "samir", "city" : "ahmedabad"}
+
+# # {'NAME' : 'samir' , 'CITY' : 'ahmedabad'}
+
+# dict = {i.upper() : data[i] for i in data}
+
+# print(dict)
+
+# Task - 5 --------------------------------------------------------------
+
+# Remove Negative Values
+
+data = {"a" : 10 , "b" : -5 , "c" : 20 , "d" : -2}
+
+dic = {i : data[i] for i in data if data[i] > 0}
+
+print(dic)
