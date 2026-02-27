@@ -35,28 +35,40 @@
 
 # ----------------------------------------------------------
 
-data = ["amit" , "sumit" , "raj" , "parth" , "jay" , "kunal" , "sneha"]
+# data = ["amit" , "sumit" , "raj" , "parth" , "jay" , "kunal" , "sneha"]
 
-dic = {}
+# dic = {}
+
+# # for i in data :
+# #      dic[i] = i
+
+# # print(dic)
 
 # for i in data :
-#      dic[i] = i
+#      dic[i] = len(i)
 
 # print(dic)
 
-for i in data :
-     dic[i] = len(i)
+# # dic1 = {i : len(i) for i in data}
 
-print(dic)
+# # print(dic1)
 
-# dic1 = {i : len(i) for i in data}
+# # dic1 = {i[0] : i for i in data}
+
+# # print(dic1)
+
+# dic1 = {i : len(i) for i in data if len(i) > 4}
 
 # print(dic1)
 
-# dic1 = {i[0] : i for i in data}
+# # {naman : "palindrome" , "ram" : "not"}
 
-# print(dic1)
+# -----------------------------------------------------------------
 
-dic1 = {i : len(i) for i in data if len(i) > 4}
+names = ["naman" , "ram" , "shyam" , "bob" , "jay" , "madam"]
 
-print(dic1)
+# data = {i : i for i in names}
+
+data = {i : "palindrome" if i == i[ : : -1] else "Not Palindrome"  for i in names}
+
+print(data)
