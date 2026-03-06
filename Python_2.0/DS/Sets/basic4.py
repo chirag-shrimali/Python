@@ -56,10 +56,24 @@ data2 = {"Suresh" , "Chirag" , "Ram" , "Shyam" , "Pratham" , "Rajesh" , "Ganesh"
 
 # IsSub Set -----------------------------------
 
-item1 = {5 , 2}
+# item1 = {5 , 2}
 
-item2 = {2 , 6 , 5 , 1}
+# item2 = {2 , 6 , 5 , 1}
 
-x = item1.issubset(item2) # item1 subset item2
+# x = item1.issubset(item2) # item1 subset item2
 
-print(x)
+# print(x)
+
+# Intersection Update ----------------------------
+
+data1 = {"ram" , "seeta" , "lakshman" , "kush" , "luv" , "krishna"}
+
+data2 = {"ram" , "arjunn" , "bhim" , "sahdeve" , "krishna" , "draupadi"}
+
+# data1.intersection_update(data2)
+
+# print(data1)
+
+data2.symmetric_difference_update(data1)
+
+print(data2)
