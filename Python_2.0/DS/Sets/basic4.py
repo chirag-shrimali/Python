@@ -46,12 +46,20 @@ data2 = {"Suresh" , "Chirag" , "Ram" , "Shyam" , "Pratham" , "Rajesh" , "Ganesh"
 
 # IsSuper Set --------------------------------
 
-item1 = {1 , 5 , 6 , 2}
+# item1 = {1 , 5 , 6 , 2}
 
-item2 = {2 , 6 , 5}
+# item2 = {2 , 6 , 5}
 
-x = item1.issuperset(item2) # Item1 is a superset of Item2
+# x = item1.issuperset(item2) # Item1 is a superset of Item2
 
-print(x)
+# print(x)
 
 # IsSub Set -----------------------------------
+
+item1 = {5 , 2}
+
+item2 = {2 , 6 , 5 , 1}
+
+x = item1.issubset(item2) # item1 subset item2
+
+print(x)
