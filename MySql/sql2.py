@@ -59,7 +59,7 @@ print("\nTable Created Successfully!!")
 
 # print("\nThe Data can be Deleted Successfully!!")
 
-# FETCHING ALL THE DATA HERE -------------------------
+# FETCHING ALL THE DATA HERE ---------------------
 
 cursor.execute("SELECT * FROM student;")
 
