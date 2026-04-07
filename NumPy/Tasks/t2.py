@@ -1,0 +1,25 @@
+'''
+task :2 create  a array  using   np.arange (1,31)  ==> reshape (6,5) .
+
+    [[1,2,3,4,5],
+    [6,7,8,9,10],
+    [11,12,13,14,15],
+    [16,17,18,19,20],
+    [21,22,23,24,25],
+    [26,27,28,29,30]]
+
+print only  using  slicing : 
+
+[[11 12],
+[16 17]]
+'''
+
+import numpy as np
+
+a = np.arange(1 , 31).reshape(6 , 5)
+
+print(a)
+
+print('-----------------------------')
+
+print(a[2 : 4 , 0 : 2])
