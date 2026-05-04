@@ -1,0 +1,6 @@
+ID 		  NAME 		  PRICE 		  QUANTITY 
+1		 IPhone		 2000			 200
+2		 Vivo		 5000			 100
+3		 Samsung	 7000			 50
+4		 RealMe		 4000			 25
+5		 Galaxy		 6000			 36
