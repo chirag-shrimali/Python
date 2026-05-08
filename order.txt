@@ -1,1 +1,5 @@
-NAME 		 PRODUCT 	 PRICE 	
+NAME 		PRODUCT 	PRICE
+
+Chirag Shrimali	Vivo	5000
+Chirag Shrimali	Vivo	5000
+Babulal	Samsung	7000
