@@ -25,59 +25,212 @@ stock should decrease...
 
 '''
 
-# file = open('order.txt' , "w")
+# ---------------- E-COMMERCE SYSTEM ----------------
 
-# file.write(f"NAME \t\t PRODUCT \t PRICE \t")
+# Author : Chirag Shrimali
 
-# file.close()
+# Files Used :
+# users.txt
+# stock.txt
+# order.txt
 
-names = ['Chirag Shrimali' , 'Suresh Patel' , 'Rajesh Mehta' , 'Paresh Shah' , 'Ketan Pandit' , 'Hamza Ali Mazri' , 'Rehman Dakait' , 'Babu Dakait' , 'Ujair Balaoch']
+# ---------------- STOCK DATA ----------------
 
-users = {1 : ["IPhone" , 2000 , 200] , 2 : ['Vivo' , 5000 , 100] , 3 : ['Samsung' , 7000 , 50] , 4 : ['RealMe' , 4000 , 25] , 5 : ['Galaxy' , 6000 , 36]}
+# -------------------------------------------------
+# E-COMMERCE MANAGEMENT SYSTEM
+# Author : Chirag Shrimali
+# -------------------------------------------------
 
-file = open('stock.txt' , "w")
+import os
 
-file.write(f"ID \t\t  NAME \t\t  PRICE \t\t  QUANTITY \n")
+# -------------------------------------------------
+# CREATE FILES IF NOT EXISTS
+# -------------------------------------------------
 
-for i , j in users.items() :
+if not os.path.exists("users.txt"):
+    open("users.txt", "w").close()
 
-    if len(j[0]) < 7 :
+if not os.path.exists("order.txt"):
+    open("order.txt", "w").close()
 
-        file.write(f"{i}\t\t {j[0]}\t\t {j[1]}\t\t\t {j[2]}\n")
+# Create stock file only first time
+if not os.path.exists("stock.txt"):
 
-    else :
+    stockFile = open("stock.txt", "w")
 
-        file.write(f"{i}\t\t {j[0]}\t {j[1]}\t\t\t {j[2]}\n")
+    stockFile.write("ID\tNAME\t\tPRICE\tQUANTITY\n")
+    stockFile.write("1\tiPhone\t\t2000\t200\n")
+    stockFile.write("2\tVivo\t\t5000\t100\n")
+    stockFile.write("3\tSamsung\t\t7000\t50\n")
+    stockFile.write("4\tRealMe\t\t4000\t25\n")
+    stockFile.write("5\tGalaxy\t\t6000\t36\n")
 
-product_name = input("Enter the Product Name : ").capitalize()
+    stockFile.close()
 
-if product_name in "stock.txt" :
+# -------------------------------------------------
+# READ STOCK FILE
+# -------------------------------------------------
 
-    # pur = int(input("Please , Enter 1 for Purchase : "))
+products = {}
 
-    for i in names :
+stockFile = open("stock.txt", "r")
 
-        file1 = open('order.txt' , "w")
+lines = stockFile.readlines()
 
-        fullName = input("Please , Enter Your Full Name : ")
+stockFile.close()
 
-        file1.write(f"NAME \t\tPRODUCT \tPRICE")
+for line in lines[1:]:
 
-        print(f"{fullName} \t\t {j[0]} \t{j[1]}")
+    parts = line.split()
 
-file.close()
+    # Skip Empty Lines
+    if len(parts) == 0:
+        continue
 
+    pid = int(parts[0])
+    name = parts[1]
+    price = int(parts[2])
+    qty = int(parts[3])
 
-# for i in users :
+    products[pid] = [name, price, qty]
 
-#     if fullName in users :
+# -------------------------------------------------
+# DISPLAY PRODUCTS
+# -------------------------------------------------
 
-#         print(f'Welcome Back , {fullName} !!')
+print("\n----------- AVAILABLE PRODUCTS -----------\n")
 
-#         break
+print("ID\tNAME\t\tPRICE\tQUANTITY")
 
-#     else :
+for pid, data in products.items():
 
-#         users.append(i)
+    name = data[0]
+    price = data[1]
+    qty = data[2]
 
-#         break
+    if len(name) < 8:
+        print(f"{pid}\t{name}\t\t{price}\t{qty}")
+    else:
+        print(f"{pid}\t{name}\t{price}\t{qty}")
+
+# -------------------------------------------------
+# SEARCH PRODUCT
+# -------------------------------------------------
+
+productName = input("\nEnter Product Name : ").capitalize()
+
+found = False
+
+for pid, data in products.items():
+
+    name = data[0]
+    price = data[1]
+    qty = data[2]
+
+    if productName == name:
+
+        found = True
+
+        print(f"\n{name} is Available")
+        print(f"Price : {price}")
+        print(f"Quantity : {qty}")
+
+        # Check Stock
+        if qty <= 0:
+            print("\nProduct Out Of Stock")
+            break
+
+        purchase = int(input("\nEnter 1 For Purchase : "))
+
+        if purchase == 1:
+
+            # -------------------------------------------------
+            # USER LOGIN / REGISTER
+            # -------------------------------------------------
+
+            fullName = input("\nEnter Your Full Name : ")
+
+            usersFile = open("users.txt", "a+")
+
+            usersFile.seek(0)
+
+            users = usersFile.read().splitlines()
+
+            if fullName in users:
+
+                print(f"\nWelcome Back {fullName} !!")
+
+            else:
+
+                usersFile.write(fullName + "\n")
+
+                print(f"\nWelcome To E-Commerce App {fullName} !!")
+
+            usersFile.close()
+
+            # -------------------------------------------------
+            # SAVE ORDER
+            # -------------------------------------------------
+
+            orderFile = open("order.txt", "a")
+
+            orderFile.write(f"{fullName}\t{name}\t{price}\n")
+
+            orderFile.close()
+
+            # -------------------------------------------------
+            # UPDATE STOCK
+            # -------------------------------------------------
+
+            products[pid][2] -= 1
+
+            print("\nOrder Placed Successfully !!")
+
+            print(f"Remaining Quantity : {products[pid][2]}")
+
+            # -------------------------------------------------
+            # SAVE UPDATED STOCK
+            # -------------------------------------------------
+
+            stockFile = open("stock.txt", "w")
+
+            stockFile.write("ID\tNAME\t\tPRICE\tQUANTITY\n")
+
+            for sid, sdata in products.items():
+
+                sname = sdata[0]
+                sprice = sdata[1]
+                sqty = sdata[2]
+
+                if len(sname) < 8:
+                    stockFile.write(f"{sid}\t{sname}\t\t{sprice}\t{sqty}\n")
+                else:
+                    stockFile.write(f"{sid}\t{sname}\t{sprice}\t{sqty}\n")
+
+            stockFile.close()
+
+        else:
+
+            print("\nPurchase Cancelled")
+
+        break
+
+# -------------------------------------------------
+# PRODUCT NOT FOUND
+# -------------------------------------------------
+
+if found == False:
+
+    print("\nProduct Not Found")
+
+# -------------------------------------------------
+# SHOW UPDATED STOCK
+# -------------------------------------------------
+
+print("\n----------- UPDATED STOCK -----------\n")
+
+updatedStock = open("stock.txt", "r")
+
+print(updatedStock.read())
+
+updatedStock.close()
