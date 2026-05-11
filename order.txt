@@ -3,3 +3,4 @@ NAME 		PRODUCT 	PRICE
 Chirag Shrimali	Vivo	5000
 Chirag Shrimali	Vivo	5000
 Babulal	Samsung	7000
+Suresh Mehta	Galaxy	6000

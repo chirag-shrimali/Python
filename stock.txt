@@ -3,4 +3,4 @@ ID	NAME		PRICE	QUANTITY
 2	Vivo		5000	98
 3	Samsung		7000	49
 4	RealMe		4000	25
-5	Galaxy		6000	36
+5	Galaxy		6000	35
