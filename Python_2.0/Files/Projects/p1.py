@@ -25,27 +25,7 @@ stock should decrease...
 
 '''
 
-# ---------------- E-COMMERCE SYSTEM ----------------
-
-# Author : Chirag Shrimali
-
-# Files Used :
-# users.txt
-# stock.txt
-# order.txt
-
-# ---------------- STOCK DATA ----------------
-
-# -------------------------------------------------
-# E-COMMERCE MANAGEMENT SYSTEM
-# Author : Chirag Shrimali
-# -------------------------------------------------
-
 import os
-
-# -------------------------------------------------
-# CREATE FILES IF NOT EXISTS
-# -------------------------------------------------
 
 if not os.path.exists("users.txt"):
     open("users.txt", "w").close()
@@ -53,7 +33,6 @@ if not os.path.exists("users.txt"):
 if not os.path.exists("order.txt"):
     open("order.txt", "w").close()
 
-# Create stock file only first time
 if not os.path.exists("stock.txt"):
 
     stockFile = open("stock.txt", "w")
@@ -67,10 +46,6 @@ if not os.path.exists("stock.txt"):
 
     stockFile.close()
 
-# -------------------------------------------------
-# READ STOCK FILE
-# -------------------------------------------------
-
 products = {}
 
 stockFile = open("stock.txt", "r")
@@ -79,11 +54,9 @@ lines = stockFile.readlines()
 
 stockFile.close()
 
-for line in lines[1:]:
+for line in lines[1 : ] :
 
     parts = line.split()
-
-    # Skip Empty Lines
     if len(parts) == 0:
         continue
 
@@ -93,10 +66,6 @@ for line in lines[1:]:
     qty = int(parts[3])
 
     products[pid] = [name, price, qty]
-
-# -------------------------------------------------
-# DISPLAY PRODUCTS
-# -------------------------------------------------
 
 print("\n----------- AVAILABLE PRODUCTS -----------\n")
 
@@ -112,10 +81,6 @@ for pid, data in products.items():
         print(f"{pid}\t{name}\t\t{price}\t{qty}")
     else:
         print(f"{pid}\t{name}\t{price}\t{qty}")
-
-# -------------------------------------------------
-# SEARCH PRODUCT
-# -------------------------------------------------
 
 productName = input("\nEnter Product Name : ").capitalize()
 
@@ -135,7 +100,6 @@ for pid, data in products.items():
         print(f"Price : {price}")
         print(f"Quantity : {qty}")
 
-        # Check Stock
         if qty <= 0:
             print("\nProduct Out Of Stock")
             break
@@ -143,10 +107,6 @@ for pid, data in products.items():
         purchase = int(input("\nEnter 1 For Purchase : "))
 
         if purchase == 1:
-
-            # -------------------------------------------------
-            # USER LOGIN / REGISTER
-            # -------------------------------------------------
 
             fullName = input("\nEnter Your Full Name : ")
 
@@ -168,29 +128,17 @@ for pid, data in products.items():
 
             usersFile.close()
 
-            # -------------------------------------------------
-            # SAVE ORDER
-            # -------------------------------------------------
-
             orderFile = open("order.txt", "a")
 
             orderFile.write(f"{fullName}\t{name}\t{price}\n")
 
             orderFile.close()
 
-            # -------------------------------------------------
-            # UPDATE STOCK
-            # -------------------------------------------------
-
             products[pid][2] -= 1
 
             print("\nOrder Placed Successfully !!")
 
             print(f"Remaining Quantity : {products[pid][2]}")
-
-            # -------------------------------------------------
-            # SAVE UPDATED STOCK
-            # -------------------------------------------------
 
             stockFile = open("stock.txt", "w")
 
@@ -215,17 +163,9 @@ for pid, data in products.items():
 
         break
 
-# -------------------------------------------------
-# PRODUCT NOT FOUND
-# -------------------------------------------------
-
 if found == False:
 
     print("\nProduct Not Found")
-
-# -------------------------------------------------
-# SHOW UPDATED STOCK
-# -------------------------------------------------
 
 print("\n----------- UPDATED STOCK -----------\n")
 
