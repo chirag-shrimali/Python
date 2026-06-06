@@ -16,7 +16,11 @@ class Employee(User) :
 
     def getEmpInfo(self) :
 
-        print("Employee Name :" , self.name)
+        fileE = open("Employee.txt" , "w")
+
+        fileE.write(f"Employee Name : {self.name}")
+
+        fileE.close()
 
 class Manager(User) :
 
@@ -28,7 +32,11 @@ class Manager(User) :
 
     def getManInfo(self) :
 
-        print("Manager Name :" , self.name)
+        fileM = open("Manager.txt" , "w")
+
+        fileM.write(f"Manager Name : {self.name}")
+
+        fileM.close()
 
 e = Employee("Raju Patel")
 
