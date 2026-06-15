@@ -14,7 +14,7 @@ except ZeroDivisionError as z :
 
     print(z)
 
-except ValueError as v :
+except (ValueError , TypeError) as v :
 
     # print("\nValue Error...")
 
@@ -23,3 +23,7 @@ except ValueError as v :
 except :
 
     print("\nError...")
+
+finally :
+
+    print("\nFinally Block is Called...")
